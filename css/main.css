@@ -3,14 +3,7 @@
 -Define color varibalbes
 -Reset CSS properties(margin, padding)
 */
-
-// Google Font
 @import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
-
-// Font variable
-$commissioner: "Commissioner", sans-serif;
-
-// Colors
 :root {
   --color-moderate-cyan: hsl(176, 50%, 47%);
   --color-dark-cyan: hsl(176, 72%, 28%);
@@ -18,7 +11,6 @@ $commissioner: "Commissioner", sans-serif;
   --color-white: hsl(0, 0%, 48%);
 }
 
-// Resetting
 * {
   padding: 0;
   margin: 0;
@@ -37,5 +29,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: $commissioner;
+  font-family: "Commissioner", sans-serif;
 }
+
+/*# sourceMappingURL=main.css.map */
