@@ -30,6 +30,185 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Commissioner", sans-serif;
+  background-color: #f2f2f2;
+}
+
+.header {
+  background-image: url("../images/image-hero-mobile.jpg");
+  background-size: cover;
+  background-position: contain;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+.header__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header__container .nav {
+  position: relative;
+}
+.header__container .nav::after {
+  content: url("../images/icon-hamburger.svg");
+  position: absolute;
+  top: 35%;
+  right: 0;
+}
+.header__container .nav__lists {
+  list-style-type: none;
+  transform: translateY(-100%);
+}
+
+.main {
+  transform: translateY(-4%);
+}
+.main__section {
+  max-width: 32.7rem;
+  margin: 0 auto;
+  margin-bottom: 2.4rem;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+.mastercraft {
+  position: relative;
+  padding: 5.2rem 2.4rem 4rem 2.4rem;
+  text-align: center;
+}
+.mastercraft__title {
+  padding: 0 1rem;
+  word-break: keep-all;
+  font-size: 2rem;
+}
+.mastercraft__body {
+  font-size: 1.4rem;
+  margin: 1.6rem 0 2.4rem 0;
+}
+.mastercraft::before {
+  content: url("../images/logo-mastercraft.svg");
+  position: absolute;
+  top: -13%;
+  left: 40%;
+}
+.mastercraft__links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stats {
+  padding: 3.2rem 0 4rem 0;
+}
+.stats__list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+  margin-bottom: 3.2rem;
+}
+.stats__list .item-separator {
+  margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
+  width: 8rem;
+  height: 0.1rem;
+  background-color: var(--color-white);
+}
+.stats__list__item .item-emphasize {
+  font-size: 3.2rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.9rem;
+}
+.stats__list__item .item-normal {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--color-white);
+}
+.stats__progress {
+  margin: 0 auto;
+  border: 1px solid red;
+  width: 90%;
+  height: 1.2rem;
+}
+
+.project .project-container {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  max-width: 27.9rem;
+  margin: 0 auto;
+}
+.project .project-body-container {
+  margin-top: 2.4rem;
+  margin-bottom: 3.5rem;
+}
+.project__title {
+  font-size: 1.8rem;
+}
+.project__body {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--color-white);
+}
+.project .funding {
+  width: 100%;
+  border: 1px solid var(--color-white);
+  border-radius: 1rem;
+  margin-bottom: 2.4rem;
+}
+.project .funding .funding-container {
+  padding: 2.4rem 0 4rem 2.4rem;
+}
+.project .funding__title {
+  font-size: 1.4rem;
+}
+.project .funding__pledge {
+  font-size: 1.4rem;
+  color: var(--color-moderate-cyan);
+  font-weight: 500;
+  margin-top: 0.8rem;
+  margin-bottom: 2.4rem;
+}
+.project .funding__description {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--color-white);
+  margin-bottom: 2.4rem;
+}
+.project .funding__left {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+.project .funding__left .text-b {
+  display: block;
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-right: 0.8rem;
+}
+.project .funding__left .text-w {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--color-white);
+}
+
+.mastercraft__btn {
+  background-color: var(--color-moderate-cyan);
+  font-size: 1.6rem;
+  color: white;
+  padding: 1.4rem 4rem;
+  border-radius: 2rem;
+  text-decoration: none;
+}
+
+.reward-btn {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: white;
+  padding: 1.5rem 3.3rem;
+  background-color: var(--color-moderate-cyan);
+  font-weight: 700;
+  border-radius: 3rem;
 }
 
 /*# sourceMappingURL=main.css.map */
