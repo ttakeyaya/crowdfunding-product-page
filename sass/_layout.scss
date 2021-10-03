@@ -4,7 +4,6 @@
   background-position: contain;
   background-repeat: no-repeat;
   height: 300px;
-
   &__container {
     display: flex;
     justify-content: space-around;
@@ -28,6 +27,7 @@
 }
 
 .main {
+  position: relative;
   transform: translateY(-4%);
   &__section {
     // transform: translateY(-30%);
@@ -99,9 +99,17 @@
   }
   &__progress {
     margin: 0 auto;
-    border: 1px solid red;
+    position: relative;
     width: 90%;
     height: 1.2rem;
+    border-radius: 1rem;
+    background-color: rgba(238, 238, 238, 0.8);
+    .progressed {
+      width: 1px;
+      height: 1.2rem;
+      border-radius: 1rem;
+      background-color: var(--color-moderate-cyan);
+    }
   }
 }
 
@@ -167,4 +175,8 @@
       }
     }
   }
+}
+.out-of-stock {
+  opacity: 0.5;
+  pointer-events: none;
 }

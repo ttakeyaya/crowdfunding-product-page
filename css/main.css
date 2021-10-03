@@ -60,6 +60,7 @@ body {
 }
 
 .main {
+  position: relative;
   transform: translateY(-4%);
 }
 .main__section {
@@ -127,9 +128,17 @@ body {
 }
 .stats__progress {
   margin: 0 auto;
-  border: 1px solid red;
+  position: relative;
   width: 90%;
   height: 1.2rem;
+  border-radius: 1rem;
+  background-color: rgba(238, 238, 238, 0.8);
+}
+.stats__progress .progressed {
+  width: 1px;
+  height: 1.2rem;
+  border-radius: 1rem;
+  background-color: var(--color-moderate-cyan);
 }
 
 .project .project-container {
@@ -192,6 +201,11 @@ body {
   color: var(--color-white);
 }
 
+.out-of-stock {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .mastercraft__btn {
   background-color: var(--color-moderate-cyan);
   font-size: 1.6rem;
@@ -209,6 +223,211 @@ body {
   background-color: var(--color-moderate-cyan);
   font-weight: 700;
   border-radius: 3rem;
+}
+
+.modal-submit-btn {
+  background-color: var(--color-moderate-cyan);
+  color: white;
+  border: none;
+  padding: 1.5rem 2.5rem;
+  border-radius: 2rem;
+  font-weight: 700;
+}
+
+.success-btn {
+  background-color: var(--color-moderate-cyan);
+  color: white;
+  border: none;
+  padding: 1.5rem 3.3rem;
+  border-radius: 2rem;
+}
+
+.modal-outer {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: scroll;
+}
+
+.modal {
+  transform: translateY(10%);
+}
+.modal__back {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.4rem;
+}
+.modal__back-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 100%;
+}
+.modal__description {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--color-white);
+  margin-bottom: 2.4rem;
+}
+.modal__funding {
+  border: 1px solid var(--color-white);
+  border-radius: 1rem;
+  margin-bottom: 2.4rem;
+  padding-left: 2.4rem;
+  padding-right: 0.9rem;
+  padding-top: 3.2rem;
+}
+.modal__funding__pledge-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3.7rem;
+}
+.modal__funding__pledge-container .pledge-title {
+  padding-left: 1.6rem;
+  font-size: 1.4rem;
+}
+.modal__funding__pledge-container .pledge-texts {
+  padding-left: 2rem;
+  font-size: 1.4rem;
+}
+.modal__funding__pledge-container .pledge-texts__title {
+  margin-bottom: 0.8rem;
+}
+.modal__funding__pledge-container .pledge-texts__pledge {
+  color: var(--color-moderate-cyan);
+  font-weight: 500;
+}
+.modal__left {
+  margin-bottom: 3.4rem;
+}
+.modal__left .text-b {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.modal__left .text-w {
+  padding-left: 0.8rem;
+  font-size: 1.5rem;
+  color: var(--color-white);
+}
+.modal__form-container {
+  padding-top: 2.3rem;
+  border-top: 1px solid var(--color-white);
+  opacity: 1;
+  display: none;
+}
+.modal__form {
+  text-align: center;
+}
+.modal__form__fieldset {
+  font-size: 1.4rem;
+  color: var(--color-white);
+  border: none;
+}
+.modal__form .form-submit-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+.modal__form .input-container {
+  position: relative;
+}
+.modal__form .input-container::after {
+  position: absolute;
+  content: "$";
+  top: 27%;
+  left: 25%;
+  height: 1.2rem;
+  width: 1.2rem;
+}
+.modal__form__input {
+  max-width: 10rem;
+  border: 1px solid var(--color-white);
+  padding: 1.2rem 1.2rem 1.2rem 4rem;
+  border-radius: 2rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.modal-outer-thanks {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: scroll;
+}
+
+.success {
+  transform: translateY(40%);
+  text-align: center;
+  padding-top: 3.2rem;
+  padding-bottom: 4rem;
+}
+.success .success-container {
+  max-width: 27.9rem;
+  margin: 0 auto;
+}
+.success .success-container .success-title {
+  margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+.success .success-container .success-description {
+  margin-bottom: 3.15rem;
+}
+
+/*
+style the radio btn
+*/
+.radio-container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 2rem;
+  margin-bottom: 2.2rem;
+}
+
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 1px solid var(--color-white);
+  border-radius: 50%;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.radio-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.radio-container .checkmark:after {
+  top: 6px;
+  left: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-moderate-cyan);
 }
 
 /*# sourceMappingURL=main.css.map */
