@@ -12,22 +12,27 @@
   </style>
 </head>
 <body>
-  
   <header class="header">
     <div class="header__container">
       <p>
         <img src="./images/logo.svg" alt="crowdfund logo">
       </p>
       <nav class="nav">
-        <ul class="nav__lists">
-          <li>About</li>
-          <li>Discover</li>
-          <li>Get Started</li>
-        </ul>
+          <ul class="nav__lists">
+            <li class="nav__lists__item"><a href="#" class="link__item">About</a></li>
+            <li class="nav__lists__item"><a href="#" class="link__item">Discover</a></li> 
+            <li class="nav__lists__item"><a href="#" class="link__item">Get Started</a></li>
+          </ul>
       </nav>
+      <button id="navBtn" arial-labe="showup menu">
+        <img src="./images/icon-hamburger.svg" id="navtBtn-img">
+      </button>
     </div>
   </header>
+  <!-- header end -->
+  <!-- main starts -->
   <main class="main">
+    <!-- mastercraft starts -->
     <section class="main__section mastercraft">
       <h1 class="mastercraft__title">Mastercraft Bamboo Monitor Riser</h1>
       <p class="mastercraft__body">
@@ -40,6 +45,9 @@
         </figure>
       </div>
     </section>
+    <!-- mastercraft ends -->
+
+    <!-- stats start -->
     <section class="main__section stats">
       <ul class="stats__list">
         <li class="stats__list__item">
@@ -73,7 +81,9 @@
         <div class="progressed"></div>
       </div>
     </section>
+    <!-- stats end -->
 
+    <!-- project starts -->
     <section class="main__section project">
       <div class="project-container">
         <h2 class="project__title">About this project</h2>
@@ -147,10 +157,11 @@
         <!-- mahogany Special Edition -->
       </div>
     </section>
-
+    <!-- project ends -->
   </main>
+  <!-- main end -->
 
-  <!-- modal  -->
+  <!-- modal-main starts -->
   <div class="modal-outer">
     <section class="modal main__section project">
       <div class="project-container">
@@ -300,9 +311,9 @@
         </article>
     </section>
   </div>  
+  <!-- modal-main ends -->
 
-
-  <!-- modal thanks -->
+  <!-- modal-thanks starts -->
   <div class="modal-outer-thanks">
     <section class="modal main__section project success">
       <div class="success-container">
@@ -320,6 +331,7 @@
       </div>
     </section>
   </div>
+  <!-- modal-thanks ends -->
   <script src="./js/app.js" type="module"></script>
 </body>
 </html>

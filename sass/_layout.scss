@@ -4,25 +4,61 @@
   background-position: contain;
   background-repeat: no-repeat;
   height: 300px;
+  position: relative;
   &__container {
+    padding-top: 3.2rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+  }
+  .nav {
+    z-index: 30;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
 
-    .nav {
-      // visibility: hidden;
-      position: relative;
-      &::after {
-        content: url("../images/icon-hamburger.svg");
-        position: absolute;
-        top: 35%;
-        right: 0;
+    top: 9%;
+    left: 0%;
+    //initial state
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    &.open {
+      visibility: visible;
+      opacity: 1;
+    }
+    &__lists {
+      margin: 0 auto;
+      list-style: none;
+      height: 21.2rem;
+      width: 32.7rem;
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      background-color: white;
+      font-size: 1.8rem;
+      font-weight: 500;
+      &__item {
+        padding: 2.4rem;
+        border-bottom: 1px solid var(--color-white);
       }
-      &__lists {
-        list-style-type: none;
-        transform: translateY(-100%);
+      .link__item {
+        text-decoration: none;
+        color: black;
       }
     }
+  }
+
+  #navBtn {
+    background: transparent;
+    cursor: pointer;
+    border: none;
   }
 }
 
@@ -30,7 +66,6 @@
   position: relative;
   transform: translateY(-4%);
   &__section {
-    // transform: translateY(-30%);
     max-width: 32.7rem;
     margin: 0 auto;
     margin-bottom: 2.4rem;

@@ -77,3 +77,14 @@ function rerenderProgressBar(BarContainer, Bar, backedManager){
   Bar.style.width=`${BarWidth}px`;
 }
 
+let navBtn = document.querySelector('#navBtn');
+let navImg = navBtn.children[0];
+navBtn.addEventListener('click', e => {
+  navImg.src="../images/icon-close-menu.svg";
+  let isOpen = document.querySelector('.nav').classList.toggle('open');
+  if(isOpen){
+    navImg.src="../images/icon-close-menu.svg";
+  }else{
+    navImg.src="../images/icon-hamburger.svg";
+  }
+});
