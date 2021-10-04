@@ -32,7 +32,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Solution](https://github.com/ttakeyaya/crowdfunding-product-page)
-- Live Site URL: [Live](https://ttakeyaya.github.io/crowdfunding-product-page/index.html)
+- Live Site URL: [Live](https://ttakeyaya.github.io/crowdfunding-product-page/)
 
 ## My process
 
