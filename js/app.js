@@ -1,10 +1,16 @@
 import {slideToggle} from './helpers/slide.js';
 import Project from './Project.js';
 import {rerenderProgressBar} from './ProgressBar.js';
+import {products} from './Product.js';
+import {View} from './View.js';
+
 
 // Initialize the Project Obj
 let ProjectManager = new Project();
-console.log(ProjectManager);
+// console.log(ProjectManager.getCurrentBacked());
+// Initialize the view;
+let view = new View(ProjectManager, products);
+view.update();
 
 // DOMs:first modal
 const noReward = document.getElementById('no-reward');
@@ -74,14 +80,25 @@ for (const property in modalBtnIds){
 
 // Click 'continue' button on the first modal **********
 continueBtns.forEach(continueBtn => {
+  // console.log(continueBtn);
   continueBtn.addEventListener('click', (e)=>{
     e.preventDefault();
     let amountBacked = continueBtn.closest('.modal__form').amount.value;
+    // increse the current amount 
     ProjectManager.pushBacker(amountBacked);
+    
+    // find the productId and update the view
+    let productId = continueBtn.closest('.modal__form-container').dataset.pledge;
+    if(productId !== 0){
+      products.remove(productId);
+    }
+    view.update(products);
+
     rerenderProgressBar(progressBarContainer, progressedBar, ProjectManager);
+
+
     modal.style.display = 'none';
     modalThanks.style.display="block";
-    console.log(ProjectManager._currentBacked);
   })
 });
 // *****************************************
@@ -92,7 +109,6 @@ successBtn.addEventListener('click', (e)=>{
   document.body.classList.toggle('hide-scroll-bar');
   header.classList.toggle('forbid-click');
   main.classList.toggle('forbid-click');
-  console.log(ProjectManager);
 });
 // ******************************
 
@@ -103,10 +119,6 @@ let progressedBar = document.querySelector('.progressed');
 window.onresize=()=>{
   rerenderProgressBar(progressBarContainer, progressedBar, ProjectManager);
 }
-ProjectManager.pushBacker(200);
-ProjectManager.pushBacker(200);
-ProjectManager.pushBacker(200);
-ProjectManager.pushBacker(200);
 rerenderProgressBar(progressBarContainer, progressedBar, ProjectManager);
 //************************** 
 

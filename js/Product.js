@@ -3,20 +3,29 @@
 export let products = 
 {
   /*Initial state
-  productName : amount left
+  productID : {productName, amount left}
   */
-  bamboo : 110,
-  black :70,
-  special:2,
+  25 :{
+    "productName":"bamboo",
+    "left":110
+  } ,
+  75 :{
+    "productName":"black",
+    "left":70,
+  },
+  200:{
+    "productName":"special",
+    "left":2
+  },
   
-  remove : function(productName, amount=1){
-    if(this[productName]<= 0){
+  remove : function(Id, amount=1){
+    if(Id == 0 ) return ;
+    if(this[Id].left<= 0){
       throw new Error('Out of stock')
     }
-    this[productName] -= amount;
+    this[Id].left -= amount;
   },
-  getAmout: function(productName){
-    return this[productName];
-  }
-  
+  getAmount: function(Id){
+    return this[Id].left;
+  } 
 }
