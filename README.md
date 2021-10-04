@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution](https://github.com/ttakeyaya/crowdfunding-product-page)
+- Live Site URL: [Live](https://ttakeyaya.github.io/crowdfunding-product-page/index.html)
 
 ## My process
 
