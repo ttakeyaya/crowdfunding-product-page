@@ -183,6 +183,10 @@ bookMark.addEventListener('click', (e) =>{
   const bookMarkFullPath = origin + bookMarkPath;
   const bookMarkCyanFullPath = origin + bookMarkCyanPath;
   
+  console.log("origin: " + origin);
+  console.log("bookMarkFullPath: " + bookMarkFullPath);
+  console.log("bookMarkCyanFullPath: " + bookMarkCyanFullPath);
+
   console.log(bookMarkCyanFullPath);
   if(fullPath === bookMarkFullPath){
     e.target.src = bookMarkCyanFullPath;
