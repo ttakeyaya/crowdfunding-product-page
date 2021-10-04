@@ -1,3 +1,4 @@
+// TODO refactering
 export class View{
   constructor(projectManager, products){
     this.projectManager = projectManager;
@@ -13,9 +14,11 @@ export class View{
     this.bambooLefts = document.querySelectorAll('.bamboo-left');
     this.blackLefts = document.querySelectorAll('.black-left');
     this.specialLefts = document.querySelectorAll('.special-left');
+
   }
 
   update(){
+    let forbiddens = [];
     // stats
     this.backedAmount.innerHTML = Number(this.projectManager.getCurrentBacked());
     this.backedTotal.innerHTML = this.projectManager.getTotalBacked();
@@ -23,13 +26,35 @@ export class View{
     this.deadline.innerHTML = this.projectManager.getDeadLine();
     // products
     this.bambooLefts.forEach(bambooLeft => {
-      bambooLeft.innerHTML = this.products.getAmount(25);
+      if(this.products.getAmount(25) != 0){
+        bambooLeft.innerHTML = this.products.getAmount(25);
+      }else{
+        bambooLeft.innerHTML = 0;
+        let modal_forbid = bambooLeft.parentNode.parentNode.parentNode.parentNode;
+        forbiddens.push(modal_forbid);
+      }
+      
     });
     this.blackLefts.forEach(blackLeft => {
-      blackLeft.innerHTML = this.products.getAmount(75);
+      if(this.products.getAmount(75) != 0){
+        blackLeft.innerHTML = this.products.getAmount(75);
+      }else{
+        blackLeft.innerHTML = 0;
+        let modal_forbid = blacLeft.parentNode.parentNode.parentNode.parentNode;
+        forbiddens.push(modal_forbid);
+      }
     });
     this.specialLefts.forEach(specialLeft => {
-      specialLeft.innerHTML = this.products.getAmount(200);
+      if(this.products.getAmount(200) != 0){
+        specialLeft.innerHTML = this.products.getAmount(200);
+      }else{
+        specialLeft.innerHTML = 0;
+        let modal_forbid = specialLeft.parentNode.parentNode.parentNode.parentNode;
+        forbiddens.push(modal_forbid);
+      }
     });
+    forbiddens.forEach(elem =>{
+      elem.classList.add('out-of-stock');
+    })
   }
 }

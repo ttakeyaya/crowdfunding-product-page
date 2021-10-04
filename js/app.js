@@ -1,13 +1,14 @@
+// TODO refactoring
+
 import {slideToggle} from './helpers/slide.js';
 import Project from './Project.js';
 import {rerenderProgressBar} from './ProgressBar.js';
 import {products} from './Product.js';
 import {View} from './View.js';
 
-
 // Initialize the Project Obj
 let ProjectManager = new Project();
-// console.log(ProjectManager.getCurrentBacked());
+
 // Initialize the view;
 let view = new View(ProjectManager, products);
 view.update();
@@ -30,13 +31,13 @@ let successBtn = document.querySelector('.success-btn');
 // DOMs: top page's select product button
 const selectRewardBtns = document.querySelectorAll('.reward-btn');
 
-// 
-const modalBtnIds ={
-  0:noReward,
-  25:pledge25,
-  75:pledge75,
-  200:pledge200
-};
+const backBtnTop = document.querySelector('.mastercraft__btn');
+backBtnTop.addEventListener('click', ()=>{
+  modal.style.display ="block";
+  document.body.classList.toggle('hide-scroll-bar');
+  header.classList.toggle('forbid-click');
+  main.classList.toggle('forbid-click');
+})
 
 
 // clicks "Select Reward" button, show the first modal
@@ -56,24 +57,58 @@ selectRewardBtns.forEach(selectBtn => {
 // close first modal**********************
 closeBtn.addEventListener('click', (e)=>{
   modal.style.display ='none';
+  document.body.classList.toggle('hide-scroll-bar');
+  header.classList.toggle('forbid-click');
+  main.classList.toggle('forbid-click');
 });
 // ***************************************
 
 // check radio button on the first modal***************
+// TODO refactoring!
 let modalOpens = {
   0:false,
   25:false,
   75:false,
   200:false,
 };
+// 
+const modalBtnIds ={
+  0:noReward,
+  25:pledge25,
+  75:pledge75,
+  200:pledge200
+};
+
 for (const property in modalBtnIds){
+  // get radio buttons and add eventlistener.
   modalBtnIds[property].addEventListener('click', e=>{
+    // get the formContainer associated with the button
+    let result = Array.from(formContainers).filter(container =>{
+      if(container.dataset.pledge == property) return container;
+    });
+    let container =  result[0].parentNode;
+    container.style.border="1px solid green";
+    // get the other containers not selected.
+    let notSelectedIds = [];
+    for(const elem in modalBtnIds){
+      if(property != elem) notSelectedIds.push(elem);
+    }
+    // console.log(notSelectedIds);
+    let notSelectedContainers = Array.from(formContainers).filter(container =>{
+      if(notSelectedIds.includes(container.dataset.pledge)){
+        return container;
+      }
+    });
+    notSelectedContainers.forEach(container=>{
+      container.parentNode.style.border ="1px solid hsl(0, 0%, 48%)";
+    })
+
     formContainers.forEach(formContainer => {
-      if(property == formContainer.dataset.pledge && !modalOpens[property]){
+      if(property == formContainer.dataset.pledge &!modalOpens[property]){
         modalOpens[property] = !modalOpens[property];
         slideToggle(formContainer,400);
       };
-    })
+    });
   });
 }
 // ***********************
@@ -89,8 +124,9 @@ continueBtns.forEach(continueBtn => {
     
     // find the productId and update the view
     let productId = continueBtn.closest('.modal__form-container').dataset.pledge;
+
     if(productId !== 0){
-      products.remove(productId);
+        products.remove(productId);
     }
     view.update(products);
 

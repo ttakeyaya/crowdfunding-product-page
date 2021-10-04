@@ -15,14 +15,11 @@ export let products =
   },
   200:{
     "productName":"special",
-    "left":2
+    "left":1
   },
   
   remove : function(Id, amount=1){
     if(Id == 0 ) return ;
-    if(this[Id].left<= 0){
-      throw new Error('Out of stock')
-    }
     this[Id].left -= amount;
   },
   getAmount: function(Id){

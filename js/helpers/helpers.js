@@ -21,3 +21,11 @@ export const clearChecked = (array) =>{
     return elem = false;
   });
 }
+
+export const toggleBackgroundColor = (container) =>{
+  if(container.style.backgroundColor != 'green'){
+    container.style.backgroundColor = "black";
+  }else{
+    container.style.backgroundColor = "green";
+  }
+}
