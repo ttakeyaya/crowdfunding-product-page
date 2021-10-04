@@ -176,11 +176,12 @@ navBtn.addEventListener('click', e => {
 let bookMark = document.querySelector('.bookmark');
 let bookmarkText = document.querySelector('.bookmark-text');
 bookMark.addEventListener('click', (e) =>{
-  let bookMarkPath = "./images/icon-bookmark.svg";
-  let bookMarkCyanPath= "./images/icon-bookmark-cyan.svg";
+  let bookMarkPath = "../images/icon-bookmark.svg";
+  let bookMarkCyanPath= "../images/icon-bookmark-cyan.svg";
   const fullPath = e.target.src;
-
+  console.log('full path: ' + fullPath);
   const origin = new URL(fullPath).origin;
+  console.log(origin);
   const bookMarkFullPath = origin + bookMarkPath;
   const bookMarkCyanFullPath = origin + bookMarkCyanPath;
   
