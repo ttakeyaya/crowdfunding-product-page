@@ -1,3 +1,5 @@
+// style buttons and the bookmark
+
 .mastercraft__btn {
   background-color: var(--color-moderate-cyan);
   font-size: 1.6rem;
@@ -5,6 +7,9 @@
   padding: 1.4rem 4rem;
   border-radius: 2rem;
   text-decoration: none;
+  &:hover {
+    background-color: var(--color-dark-cyan);
+  }
 }
 .reward-btn {
   font-size: 1.4rem;
@@ -14,14 +19,21 @@
   background-color: var(--color-moderate-cyan);
   font-weight: 700;
   border-radius: 3rem;
+  &:hover {
+    background-color: var(--color-dark-cyan);
+  }
 }
 .modal-submit-btn {
+  cursor: pointer;
   background-color: var(--color-moderate-cyan);
   color: white;
   border: none;
   padding: 1.5rem 2.5rem;
   border-radius: 2rem;
   font-weight: 700;
+  &:hover {
+    background-color: var(--color-dark-cyan);
+  }
 }
 .success-btn {
   background-color: var(--color-moderate-cyan);
@@ -29,4 +41,37 @@
   border: none;
   padding: 1.5rem 3.3rem;
   border-radius: 2rem;
+  &:hover {
+    background-color: var(--color-dark-cyan);
+  }
+}
+
+/*
+ bookmark. 
+ The style of the active-state is manupulated by JavaScript. check @app.js
+ */
+.bookmark-container {
+  @media screen and (min-width: 750px) {
+    display: flex;
+    align-items: center;
+  }
+  .bookmark {
+    cursor: pointer;
+    z-index: 8;
+    @media screen and (min-width: 750px) {
+      transform: translateX(4rem);
+    }
+  }
+  .bookmark-text {
+    display: none;
+    @media screen and (min-width: 750px) {
+      display: block;
+      z-index: 0;
+      color: #7a7a7a;
+      padding: 1.7rem 1.7rem 1.7rem 5rem;
+      background-color: #d1cccc;
+      border-radius: 3rem;
+      font-weight: 700;
+    }
+  }
 }

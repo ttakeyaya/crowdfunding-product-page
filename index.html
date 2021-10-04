@@ -12,7 +12,7 @@
   </style>
 </head>
 <body>
-  <header class="header">
+  <header class="header" id="header">
     <div class="header__container">
       <p>
         <img src="./images/logo.svg" alt="crowdfund logo">
@@ -24,14 +24,14 @@
             <li class="nav__lists__item"><a href="#" class="link__item">Get Started</a></li>
           </ul>
       </nav>
-      <button id="navBtn" arial-labe="showup menu">
+      <button id="navBtn" arial-label="showup menu">
         <img src="./images/icon-hamburger.svg" id="navtBtn-img">
       </button>
     </div>
   </header>
   <!-- header end -->
   <!-- main starts -->
-  <main class="main">
+  <main class="main" id="main">
     <!-- mastercraft starts -->
     <section class="main__section mastercraft">
       <h1 class="mastercraft__title">Mastercraft Bamboo Monitor Riser</h1>
@@ -40,8 +40,9 @@
       </p>
       <div class="mastercraft__links">
         <a href="#" class="mastercraft__btn">Back this project</a>
-        <figure>
-          <img src="./images/icon-bookmark.svg" alt="bookmark">
+        <figure class="bookmark-container">
+          <img src="./images/icon-bookmark.svg" alt="bookmark" class="bookmark">
+          <span class="bookmark-text">Bookmark</span>
         </figure>
       </div>
     </section>
@@ -92,7 +93,7 @@
             The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen 
             to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve 
             your posture and make you more comfortable while at work, helping you stay focused on the task at hand.
-          </p>
+          </p><br/>
           <p class="project__body">
             Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer 
           to allow notepads, pens, and USB sticks to be stored under the stand.
@@ -101,57 +102,70 @@
 
         <article class="funding">
           <div class="funding-container">
-            <h3 class="funding__title">Bamboo Stand</h3>
-            <p class="funding__pledge">Pledge $25 or more</p>
+            <div class="funding-title-pledge-container">
+              <h3 class="funding__title">Bamboo Stand</h3>
+              <p class="funding__pledge">Pledge $25 or more</p>
+            </div>
             <p class="funding__description">
               You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and 
               you’ll be added to a special Backer member list.
             </p>
-            <p class="funding__left">
-              <span class="text-b">101</span>
-              <span class="text-w">left</span>
-            </p>
-            <a href="#" class="reward-btn" data-pledge="25">
-              Select Reward
-            </a>
+            <div class="funding-left-btn-container">
+              <p class="funding__left">
+                <span class="text-b">101</span>
+                <span class="text-w">left</span>
+              </p>
+              <a href="#" class="reward-btn" data-pledge="25">
+                Select Reward
+              </a>
+            </div>
           </div>
         </article>
         <!-- Bamboo Stand -->
         <article class="funding">
           <div class="funding-container">
-            <h3 class="funding__title">Black Edition Stand</h3>
-            <p class="funding__pledge">Pledge $75 or more</p>
+            <div class="funding-title-pledge-container
+            ">
+              <h3 class="funding__title">Black Edition Stand</h3>
+              <p class="funding__pledge">Pledge $75 or more</p>
+            </div>
             <p class="funding__description">
               You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer 
               member list. Shipping is included.
             </p>
-            <p class="funding__left">
-              <span class="text-b">64</span>
-              <span class="text-w">left</span>
-            </p>
-            <a href="#" class="reward-btn" data-pledge="75">
-              Select Reward
-            </a>
+            <div class="funding-left-btn-container">
+              <p class="funding__left">
+                <span class="text-b">64</span>
+                <span class="text-w">left</span>
+              </p>
+              <a href="#" class="reward-btn" data-pledge="75">
+                Select Reward
+              </a>
+            </div>
           </div>
         </article>
         <!-- Black Edition Stand -->
         <article class="funding out-of-stock">
           <div class="funding-container">
-            <h3 class="funding__title">
-              Mahogany Special Edition
-            </h3>
-            <p class="funding__pledge">
-              Pledge $200 or more
-            </p>
+            <div class="funding-title-pledge-container">
+              <h3 class="funding__title">
+                Mahogany Special Edition
+              </h3>
+              <p class="funding__pledge">
+                Pledge $200 or more
+              </p>
+            </div>
             <p class="funding__description">
               You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added 
               to our Backer member list. Shipping is included.
             </p>
-            <p class="funding__left">
-              <span class="text-b">0</span>
-              <span class="text-w">left</span>
-            </p>
-            <a href="#" class="reward-btn" data-pledge="200">Out of Stock</a>
+            <div class="funding-left-btn-container">
+              <p class="funding__left">
+                <span class="text-b">0</span>
+                <span class="text-w">left</span>
+              </p>
+              <a href="#" class="reward-btn" data-pledge="200">Out of Stock</a>
+            </div>
           </div>
         </article>
         <!-- mahogany Special Edition -->
@@ -176,7 +190,7 @@
         <article class="modal__funding">
           <div class="modal__funding__pledge-container">
             <label class="radio-container">
-              <input type="radio" name="no-reward" id="no-reward">
+              <input type="radio" name="reward" id="no-reward">
               <span class="checkmark"></span>
             </label>
             <h3 class="pledge-title">
@@ -190,12 +204,14 @@
           <div class="modal__form-container" data-pledge="0">
             <form class="modal__form">
               <fieldset class="modal__form__fieldset">
-                <legend class="form__title">Enter your pledge</legend>
-                <div class="form-submit-container">
-                  <div class="input-container">
-                    <input type="number" value="0" class="modal__form__input"/>
+                <div class="adjusting-form-container">
+                  <legend class="form__title">Enter your pledge</legend>
+                  <div class="form-submit-container">
+                    <div class="input-container">
+                      <input type="number" value="0" class="modal__form__input" name="amount"/>
+                    </div>
+                    <button type="submit" class="modal-submit-btn">Continue</button>
                   </div>
-                  <button type="submit" class="modal-submit-btn">Continue</button>
                 </div>
               </fieldset>
             </form>
@@ -203,35 +219,39 @@
         </article>
 
         <article class="modal__funding">
-          <div class="modal__funding__pledge-container">
-            <label class="radio-container">
-              <input type="radio" name="reward" id="pledge-25">
-              <span class="checkmark"></span>
-            </label>
-            <div class="pledge-texts">
-              <h3 class="pledge-texts__title">
-                Bamboo Stand
-              </h3>
-              <p class="pledge-texts__pledge">Pledge $25 or more</p>
+          <div class="pledge-container">
+            <div  class="modal__funding__pledge-container">
+              <label class="radio-container">
+                <input type="radio" name="reward"   id="pledge-25">
+                <span class="checkmark"></span>
+              </label>
+              <div class="pledge-texts">
+                <h3 class="pledge-texts__title">
+                  Bamboo Stand
+                </h3>
+                <p class="pledge-texts__pledge">Pledge  $25 or more</p>
+              </div>
             </div>
-          </div>
-          <p class="modal__description">
+            <p class="modal__description">
             You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
             you’ll be added to a special Backer member list.
-          </p>
-          <p class="modal__left">
-            <span class="text-b">101</span>
-            <span class="text-w">left</span>
-          </p>
+            </p>
+            <p class="modal__left">
+              <span class="text-b">101</span>
+              <span class="text-w">left</span>
+            </p>
+          </div>
           <div class="modal__form-container" data-pledge="25">
             <form class="modal__form">
               <fieldset class="modal__form__fieldset">
-                <legend class="form__title">Enter your pledge</legend>
-                <div class="form-submit-container">
-                  <div class="input-container">
-                    <input type="number" value="25" class="modal__form__input"/>
+                <div class="adjusting-form-container">
+                  <legend class="form__title">Enter your pledge</legend>
+                  <div class="form-submit-container">
+                    <div class="input-container">
+                      <input type="number" value="25" class="modal__form__input" name="amount"/>
+                    </div>
+                    <button type="submit" class="modal-submit-btn">Continue</button>
                   </div>
-                  <button type="submit" class="modal-submit-btn">Continue</button>
                 </div>
               </fieldset>
             </form>
@@ -239,71 +259,80 @@
         </article>
       
         <article class="modal__funding">
-          <div class="modal__funding__pledge-container">
-            <label class="radio-container">
-              <input type="radio" name="reward" id="pledge-75">
-              <span class="checkmark"></span>
-            </label>
-            <div class="pledge-texts">
-              <h3 class="pledge-texts__title">
-                Black Edition Stand 
-              </h3>
-              <p class="pledge-texts__pledge">Pledge $75 or more</p>
+          <div class="pledge-container">
+            <div class="modal__funding__pledge-container">
+              <label class="radio-container">
+                <input type="radio" name="reward" id="pledge-75">
+                <span class="checkmark"></span>
+              </label>
+              <div class="pledge-texts">
+                <h3 class="pledge-texts__title">
+                  Black Edition Stand 
+                </h3>
+                <p class="pledge-texts__pledge">Pledge $75 or more</p>
+                
+              </div>
             </div>
+            <p class="modal__description">
+              You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
+              member list. Shipping is included.
+            </p>
+            <p class="modal__left">
+              <span class="text-b">64</span>
+              <span class="text-w">left</span>
+            </p>
           </div>
-          <p class="modal__description">
-            You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
-            member list. Shipping is included.
-          </p>
-          <p class="modal__left">
-            <span class="text-b">64</span>
-            <span class="text-w">left</span>
-          </p>
           <div class="modal__form-container" data-pledge="75">
             <form class="modal__form">
               <fieldset class="modal__form__fieldset">
-                <legend class="form__title">Enter your pledge</legend>
-                <div class="form-submit-container">
-                  <div class="input-container">
-                    <input type="number" value="75" class="modal__form__input"/>
+                <div class="adjusting-form-container">
+                  <legend class="form__title">Enter your pledge</legend>
+                  <div class="form-submit-container">
+                    <div class="input-container">
+                      <input type="number" value="75" class="modal__form__input" name="amount"/>
+                    </div>
+                    <button type="submit" class="modal-submit-btn">Continue</button>
                   </div>
-                  <button type="submit" class="modal-submit-btn">Continue</button>
                 </div>
               </fieldset>
             </form>
           </div>
         </article>
 
-        <article class="modal__funding out-of-stock">
-          <div class="modal__funding__pledge-container">
-            <label class="radio-container">
-              <input type="radio" name="reward" id="pledge-200">
-              <span class="checkmark"></span>
-            </label>
-            <div class="pledge-texts">
-              <h3 class="pledge-texts__title">
-                Mahogany Special Edition
-              </h3>
-              <p class="pledge-texts__pledge">Pledge $200 or more</p>
+        <article class="modal__funding">
+          <div class="pledge-container">
+            <div class="modal__funding__pledge-container">
+              <label class="radio-container">
+                <input type="radio" name="reward" id="pledge-200">
+                <span class="checkmark"></span>
+              </label>
+              <div class="pledge-texts">
+                <h3 class="pledge-texts__title">
+                  Mahogany Special Edition
+                </h3>
+                <p class="pledge-texts__pledge">Pledge $200 or more</p>
+              </div>
             </div>
+            <p class="modal__description">
+              You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
+              to our Backer member list. Shipping is included
+            </p>
+            <p class="modal__left">
+              <span class="text-b">0</span>
+              <span class="text-w">left</span>
+            </p>
           </div>
-          <p class="modal__description">
-            You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
-            to our Backer member list. Shipping is included
-          </p>
-          <p class="modal__left">
-            <span class="text-b">0</span>
-            <span class="text-w">left</span>
-          </p>
           <div class="modal__form-container" data-pledge="200">
             <form class="modal__form">
               <fieldset class="modal__form__fieldset">
-                <legend class="form__title">Enter your pledge</legend>
-                <div class="form-submit-container">
-                  <div class="input-container">
-                    <input type="number" value="200" class="modal__form__input"/>
+                <div class="adjusting-form-container">
+                  <legend class="form__title">Enter your pledge</legend>
+                  <div class="form-submit-container">
+                    <div class="input-container">
+                      <input type="number" value="200" class="modal__form__input" name="amount"/>
+                    </div>
+                    <button type="submit" class="modal-submit-btn">Continue</button>
                   </div>
-                  <button type="submit" class="modal-submit-btn">Continue</button>
                 </div>
               </fieldset>
             </form>

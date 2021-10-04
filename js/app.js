@@ -1,82 +1,116 @@
-import {slideToggle} from './slide.js';
-import Backed from './Bucked.js';
+import {slideToggle} from './helpers/slide.js';
+import Project from './Project.js';
+import {rerenderProgressBar} from './ProgressBar.js';
 
-// let total backed to be $1,000.
-let backedManager = new Backed(1000);
+// Initialize the Project Obj
+let ProjectManager = new Project();
+console.log(ProjectManager);
 
+// DOMs:first modal
 const noReward = document.getElementById('no-reward');
 const pledge25 = document.getElementById("pledge-25");
 const pledge75 = document.getElementById("pledge-75");
 const pledge200 = document.getElementById("pledge-200");
 const closeBtn = document.querySelector('.closeBtn') ;
-const selectRewardBtns = document.querySelectorAll('.reward-btn');
 const modal = document.querySelector('.modal-outer');
 let formContainers = document.querySelectorAll('.modal__form-container');
+let continueBtns = document.querySelectorAll('.modal-submit-btn');
+
+
+//DOMS:second modal(Thank you page).
+let modalThanks = document.querySelector('.modal-outer-thanks');
+let successBtn = document.querySelector('.success-btn');
+
+// DOMs: top page's select product button
+const selectRewardBtns = document.querySelectorAll('.reward-btn');
+
+// 
 const modalBtnIds ={
   0:noReward,
   25:pledge25,
   75:pledge75,
   200:pledge200
 };
-let continueBtns = document.querySelectorAll('.modal-submit-btn');
-let modalThanks = document.querySelector('.modal-outer-thanks');
-let successBtn = document.querySelector('.success-btn');
-let progressBarContainer = document.querySelector('.stats__progress');
 
+
+// clicks "Select Reward" button, show the first modal
 selectRewardBtns.forEach(selectBtn => {
   selectBtn.addEventListener('click', (e)=>{
-    // e.preventDefault();
-    modal.style.display = 'block';
-    let pledgeAmountId = selectBtn.dataset.pledge;
-  })
+  // show the first modal
+  modal.style.display = 'block';
+  // 
+  document.body.classList.toggle('hide-scroll-bar');
+  header.classList.toggle('forbid-click');
+  main.classList.toggle('forbid-click');
+  // let clickedPledgeId = selectBtn.dataset.pledge;
+  });
 });
+// *********************************************
 
+// close first modal**********************
 closeBtn.addEventListener('click', (e)=>{
   modal.style.display ='none';
-})
+});
+// ***************************************
 
+// check radio button on the first modal***************
+let modalOpens = {
+  0:false,
+  25:false,
+  75:false,
+  200:false,
+};
 for (const property in modalBtnIds){
   modalBtnIds[property].addEventListener('click', e=>{
     formContainers.forEach(formContainer => {
-      if(property == formContainer.dataset.pledge){
+      if(property == formContainer.dataset.pledge && !modalOpens[property]){
+        modalOpens[property] = !modalOpens[property];
         slideToggle(formContainer,400);
       };
     })
   });
 }
+// ***********************
 
+// Click 'continue' button on the first modal **********
 continueBtns.forEach(continueBtn => {
   continueBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    let amountBacked = continueBtn.closest('.modal__form').amount.value;
+    ProjectManager.pushBacker(amountBacked);
+    rerenderProgressBar(progressBarContainer, progressedBar, ProjectManager);
     modal.style.display = 'none';
     modalThanks.style.display="block";
+    console.log(ProjectManager._currentBacked);
   })
 });
+// *****************************************
 
+// click the btn on the second modal*********
 successBtn.addEventListener('click', (e)=>{
   modalThanks.style.display="none";
+  document.body.classList.toggle('hide-scroll-bar');
+  header.classList.toggle('forbid-click');
+  main.classList.toggle('forbid-click');
+  console.log(ProjectManager);
 });
+// ******************************
 
-
+// ***********************
+// ProgressBar
+let progressBarContainer = document.querySelector('.stats__progress');
 let progressedBar = document.querySelector('.progressed');
-backedManager.pushBacker(200);
-backedManager.pushBacker(200);
-backedManager.pushBacker(200);
-backedManager.pushBacker(200);
-rerenderProgressBar(progressBarContainer, progressedBar, backedManager);
-
-function rerenderProgressBar(BarContainer, Bar, backedManager){
-  /*
-  <div class ="BarContainer">
-    <div class="Bar"></div>
-  </div>
-  */
-  let BarContainerWidth = window.getComputedStyle(BarContainer).width;
-  BarContainerWidth = Number(BarContainerWidth.split('px')[0]);
-
-  let BarWidth = Math.round(BarContainerWidth * backedManager.getPercentageAchived());
-  Bar.style.width=`${BarWidth}px`;
+window.onresize=()=>{
+  rerenderProgressBar(progressBarContainer, progressedBar, ProjectManager);
 }
+ProjectManager.pushBacker(200);
+ProjectManager.pushBacker(200);
+ProjectManager.pushBacker(200);
+ProjectManager.pushBacker(200);
+rerenderProgressBar(progressBarContainer, progressedBar, ProjectManager);
+//************************** 
 
+// click navigation button(for small screen)*********
 let navBtn = document.querySelector('#navBtn');
 let navImg = navBtn.children[0];
 navBtn.addEventListener('click', e => {
@@ -88,3 +122,28 @@ navBtn.addEventListener('click', e => {
     navImg.src="../images/icon-hamburger.svg";
   }
 });
+// ***********************************
+
+// toggle bookmark image*******************
+let bookMark = document.querySelector('.bookmark');
+let bookmarkText = document.querySelector('.bookmark-text');
+bookMark.addEventListener('click', (e) =>{
+  let bookMarkPath = "/images/icon-bookmark.svg";
+  let bookMarkCyanPath= "/images/icon-bookmark-cyan.svg";
+  const fullPath = e.target.src;
+
+  const origin = new URL(fullPath).origin;
+  const bookMarkFullPath = origin + bookMarkPath;
+  const bookMarkCyanFullPath = origin + bookMarkCyanPath;
+  
+  if(fullPath === bookMarkFullPath){
+    e.target.src = bookMarkCyanFullPath;
+    bookmarkText.style.color="#147A73";
+    bookmarkText.innerHTML = "Bookmarked";
+  }else{
+    e.target.src = bookMarkFullPath;
+    bookmarkText.style.color="#7a7a7a";
+    bookmarkText.innerHTML ="Bookmark"
+  }
+});
+// ***********************************************

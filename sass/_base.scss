@@ -39,4 +39,17 @@ body {
   font-size: 1.6rem;
   font-family: $commissioner;
   background-color: #f2f2f2;
+  // overflow: hidden;
+}
+.hide-scroll-bar {
+  overflow: hidden;
+}
+.forbid-click {
+  pointer-events: none;
+  opacity: 0.5;
+}
+// this class is used for when a product is out of stock so that users are not allowed to click the select button.
+.out-of-stock {
+  opacity: 0.5;
+  pointer-events: none;
 }

@@ -5,6 +5,19 @@
   background-repeat: no-repeat;
   height: 300px;
   position: relative;
+  @media screen and (min-width: 750px) {
+    // original image is too bright to see the white text.Because of this reason, add the linear gradient.
+    background-image: linear-gradient(
+        rgba(8, 8, 8, 0.4),
+        rgb(252, 250, 250, 0.2)
+      ),
+      url("../images/image-hero-desktop.jpg");
+
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+  }
+
   &__container {
     padding-top: 3.2rem;
     padding-left: 2.4rem;
@@ -12,6 +25,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media screen and (min-width: 750px) {
+      padding-top: 4.8rem;
+      padding-left: 16.6rem;
+      padding-right: 16.6rem;
+      max-width: 144rem;
+      margin: 0 auto;
+    }
   }
   .nav {
     z-index: 30;
@@ -21,13 +41,21 @@
     width: 100%;
     height: 100vh;
     background: rgba(0, 0, 0, 0.7);
-
     top: 9%;
     left: 0%;
     //initial state
     visibility: hidden;
     opacity: 0;
     transition: 0.5s ease-in-out;
+    @media screen and (min-width: 750px) {
+      // reset the styles of the nav section
+      position: relative;
+      visibility: visible;
+      opacity: 1;
+      background-color: transparent;
+      width: 22.5rem;
+      height: auto;
+    }
     &.open {
       visibility: visible;
       opacity: 1;
@@ -44,13 +72,25 @@
       background-color: white;
       font-size: 1.8rem;
       font-weight: 500;
+      @media screen and (min-width: 750px) {
+        font-size: 1.3rem;
+        flex-direction: row;
+        height: auto;
+        background-color: transparent;
+      }
       &__item {
         padding: 2.4rem;
         border-bottom: 1px solid var(--color-white);
+        @media screen and (min-width: 750px) {
+          border: none;
+        }
       }
       .link__item {
         text-decoration: none;
         color: black;
+        @media screen and (min-width: 750px) {
+          color: white;
+        }
       }
     }
   }
@@ -59,6 +99,9 @@
     background: transparent;
     cursor: pointer;
     border: none;
+    @media screen and (min-width: 750px) {
+      display: none;
+    }
   }
 }
 
@@ -71,6 +114,9 @@
     margin-bottom: 2.4rem;
     background-color: white;
     border-radius: 1rem;
+    @media screen and (min-width: 750px) {
+      max-width: 73rem;
+    }
   }
 }
 
@@ -78,31 +124,49 @@
   position: relative;
   padding: 5.2rem 2.4rem 4rem 2.4rem;
   text-align: center;
-
+  @media screen and (min-width: 750px) {
+    padding: 5.6rem 4.8rem 4.8rem 4.8rem;
+  }
   &__title {
     padding: 0 1rem;
     word-break: keep-all;
     font-size: 2rem;
+    @media screen and (min-width: 750px) {
+      font-size: 2.8rem;
+    }
   }
   &__body {
     font-size: 1.4rem;
     margin: 1.6rem 0 2.4rem 0;
+    @media screen and (min-width: 750px) {
+      font-size: 1.6rem;
+      margin: 1.5rem 0 4rem 0;
+    }
   }
   &::before {
     content: url("../images/logo-mastercraft.svg");
     position: absolute;
     top: -13%;
     left: 40%;
+    @media screen and (min-width: 750px) {
+      left: 45%;
+    }
   }
   &__links {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    @media screen and (min-width: 750px) {
+      justify-content: space-between;
+    }
   }
 }
 
 .stats {
   padding: 3.2rem 0 4rem 0;
+  @media screen and (min-width: 750px) {
+    padding: 4.8rem;
+  }
   &__list {
     display: flex;
     justify-content: center;
@@ -110,20 +174,33 @@
     align-items: center;
     list-style-type: none;
     margin-bottom: 3.2rem;
+    @media screen and (min-width: 750px) {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 3.7rem;
+    }
     .item-separator {
       margin-top: 2.4rem;
       margin-bottom: 2.4rem;
       width: 8rem;
       height: 0.1rem;
       background-color: var(--color-white);
+      @media screen and (min-width: 750px) {
+        margin: 0;
+        width: 0.1rem;
+        height: 5rem;
+        background-color: #979797;
+      }
     }
     &__item {
       .item-emphasize {
         font-size: 3.2rem;
         font-weight: 700;
         display: block;
-
         margin-bottom: 0.9rem;
+        @media screen and (min-width: 750px) {
+          margin-bottom: 0.8rem;
+        }
       }
       .item-normal {
         display: block;
@@ -139,6 +216,10 @@
     height: 1.2rem;
     border-radius: 1rem;
     background-color: rgba(238, 238, 238, 0.8);
+    @media screen and (min-width: 750px) {
+      max-width: 63.4rem;
+      width: 100%;
+    }
     .progressed {
       width: 1px;
       height: 1.2rem;
@@ -154,18 +235,34 @@
     padding-bottom: 4rem;
     max-width: 27.9rem;
     margin: 0 auto;
+    @media screen and (min-width: 750px) {
+      max-width: 63.4rem;
+      padding-top: 4.8rem;
+      padding-bottom: 4.8rem;
+    }
   }
   .project-body-container {
     margin-top: 2.4rem;
     margin-bottom: 3.5rem;
+    @media screen and (min-width: 750px) {
+      margin-top: 3.5rem;
+      margin-bottom: 4rem;
+    }
   }
   &__title {
     font-size: 1.8rem;
+    @media screen and (min-width: 750px) {
+      font-size: 2rem;
+    }
   }
   &__body {
     font-size: 1.4rem;
     line-height: 2.4rem;
     color: var(--color-white);
+    @media screen and (min-width: 750px) {
+      font-size: 1.6rem;
+      line-height: 3rem;
+    }
   }
   .funding {
     width: 100%;
@@ -174,9 +271,30 @@
     margin-bottom: 2.4rem;
     .funding-container {
       padding: 2.4rem 0 4rem 2.4rem;
+      @media screen and (min-width: 750px) {
+        padding: 3.8rem 3.2rem 3.2rem 3.2rem;
+      }
+      .funding-left-btn-container {
+        @media screen and (min-width: 750px) {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+      .funding-title-pledge-container {
+        @media screen and (min-width: 750px) {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 2.4rem;
+        }
+      }
     }
     &__title {
       font-size: 1.4rem;
+      @media screen and (min-width: 750px) {
+        font-size: 1.8rem;
+      }
     }
     &__pledge {
       font-size: 1.4rem;
@@ -185,6 +303,10 @@
 
       margin-top: 0.8rem;
       margin-bottom: 2.4rem;
+      @media screen and (min-width: 750px) {
+        font-size: 1.5rem;
+        margin: 0;
+      }
     }
     &__description {
       font-size: 1.4rem;
@@ -192,11 +314,18 @@
       color: var(--color-white);
 
       margin-bottom: 2.4rem;
+      @media screen and (min-width: 750px) {
+        font-size: 1.6rem;
+        line-height: 3rem;
+      }
     }
     &__left {
       display: flex;
       align-items: center;
       margin-bottom: 4rem;
+      @media screen and (min-width: 750px) {
+        margin-bottom: 0;
+      }
       .text-b {
         display: block;
         font-size: 3.2rem;
@@ -210,8 +339,4 @@
       }
     }
   }
-}
-.out-of-stock {
-  opacity: 0.5;
-  pointer-events: none;
 }
